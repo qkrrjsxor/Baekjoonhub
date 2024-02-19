@@ -39,7 +39,7 @@ public class Main {
 
 		int start = 0;
 		int end;
-		int temp1 = N;
+		int temp1 = N+1;
 		int temp2 = start;
         if(numArr[N] - numArr[N-1] >= S) {
 			System.out.println(1);
