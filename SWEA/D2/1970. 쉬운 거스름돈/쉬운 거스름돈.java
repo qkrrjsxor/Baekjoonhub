@@ -1,5 +1,4 @@
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -7,62 +6,31 @@ public class Solution {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		
+		StringBuilder sb;
 		int tc = sc.nextInt();
 		
 		for(int test = 1; test <= tc; test++) {
 			
-			int money = sc.nextInt()/10;
-			int[] count = new int[8];
+			sb = new StringBuilder();
 			
-			while(money != 0) {
-				if(money >=5000) {
-					money -= 5000;
-					count[7]++;
-					continue;
-				}
-				if(money >= 1000) {
-					money -= 1000;
-					count[6]++;
-					continue;
-				}
-				if(money >= 500) {
-					money -= 500;
-					count[5]++;
-					continue;
-				}
-				if(money >= 100) {
-					money -= 100;
-					count[4]++;
-					continue;
-				}
-				if(money >= 50) {
-					money -= 50;
-					count[3]++;
-					continue;
-				}
-				if(money >= 10) {
-					money -= 10;
-					count[2]++;
-					continue;
-				}
-				if(money >= 5) {
-					money -= 5;
-					count[1]++;
-					continue;
-				}
-				if(money >= 1) {
-					money -= 1;
-					count[0]++;
-					continue;
-				}
-			}
+			sb.append("#").append(test).append("\n");
 			
-			System.out.println("#"+test);
-			for(int i = 7 ; i>=0; i--) {
-				System.out.print(count[i] + " ");
+			int money = sc.nextInt();
+			int[] count = new int[] {50000, 10000, 5000, 1000, 500, 100, 50, 10};
+			
+			for(int i = 0; i < 8; i++) {
+				int N = money/count[i];
+				money = money - N*count[i];
+				sb.append(N + " ");
+//				System.out.println(N);
 			}
-			System.out.println();
+//			sb.append("\n");
+//			
+//			System.out.println("#"+test);
+//			for(int i = 7 ; i>=0; i--) {
+//				System.out.print(count[i] + " ");
+//			}
+			System.out.println(sb.toString());
 		}
 	}
 }
